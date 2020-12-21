@@ -53,22 +53,6 @@ def validateIssueYear(passport):
 def validateExpirationYear(passport):
 	return int(passport['eyr']) >= 2020 and int(passport['eyr']) <= 2030
 
-# def validateHeight(passport):
-# 	height = passport['hgt']
-# 	if 'cm' not in height and 'in' not in height:
-# 		return False
-# 	elif 'cm' in height:
-# 		pos = height.find('cm')
-# 		heightInCm = int(height[0:pos])
-# 		if heightInCm >= 150 and heightInCm <= 193:
-# 			return True
-# 	elif 'in' in height:
-# 		pos = height.find('in')
-# 		heightInInches = int(height[0:pos])
-# 		if heightInInches >= 59 and heightInInches <= 76:
-# 			return True
-# 	else:
-# 		return False
 def validateHeight(passport):
     if passport['hgt'][-2:] == "cm":
         return int(passport['hgt'][:-2]) >= 150 and int(passport['hgt'][:-2]) <= 193
@@ -108,11 +92,7 @@ def partTwo(partialValid):
 		if not validateHairColour(passport):
 			continue
 		count += 1
-
-
 	return count
-
-
 
 
 passportsSplit = []
